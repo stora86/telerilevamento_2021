@@ -74,3 +74,46 @@ crp_r <- colorRampPalette(c("dark red", "red", "pink")) (100)
 plot(p224r63_2011mk$B3_sre, col=crp_r)
 crp_near <- colorRampPalette(c("red", "orange", "yellow")) (100)
 plot(p224r63_2011mk$B4_sre, col=crp_near)
+
+## day4
+
+# Bande Landsat
+# B1: blu
+# B2: verde
+# B3: rosso
+# B4: infrarosso vicino
+# B5: infrarosso medio
+# B6: infrarosso termico
+# B7: ifrarosso medio
+
+#visualizing data by RGB plotting
+#natural colours
+plotRGB(p224r63_2011mk, r=3, g=2, b=1, stretch="Lin")
+#false colours
+plotRGB(p224r63_2011mk, r=4, g=3, b=2, stretch="Lin")
+#false colours in green with band 4 infrared
+plotRGB(p224r63_2011mk, r=3, g=4, b=2, stretch="Lin")
+plotRGB(p224r63_2011mk, r=3, g=2, b=4, stretch="Lin")
+
+#exercises: mount a 2x2 multiframe stretch lineare
+#export in pdf
+pdf("landsat_bands.pdf")
+par(mfrow=c(2,2))
+plotRGB(p224r63_2011mk, r=3, g=2, b=1, stretch="Lin")
+plotRGB(p224r63_2011mk, r=4, g=3, b=2, stretch="Lin")
+plotRGB(p224r63_2011mk, r=3, g=4, b=2, stretch="Lin")
+plotRGB(p224r63_2011mk, r=3, g=2, b=4, stretch="Lin")
+dev.off()
+
+plotRGB(p224r63_2011mk, r=3, g=4, b=2, stretch="Lin")
+#mltiframe stretch histogram che evidenzia di più le zone umide
+plotRGB(p224r63_2011mk, r=3, g=4, b=2, stretch="hist")
+
+#parnaturl colours, false colours, and false colours with histogram stretch
+par(mfrow=c(3,1))
+plotRGB(p224r63_2011mk, r=3, g=2, b=1, stretch="Lin")
+plotRGB(p224r63_2011mk, r=3, g=4, b=2, stretch="Lin")
+plotRGB(p224r63_2011mk, r=3, g=4, b=2, stretch="hist")
+
+#install.packages("RStoolbox")
+#library(RStoolbox)
