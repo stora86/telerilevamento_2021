@@ -117,3 +117,5 @@ plotRGB(p224r63_2011mk, r=3, g=4, b=2, stretch="hist")
 
 #install.packages("RStoolbox")
 #library(RStoolbox)
+
+## day5
