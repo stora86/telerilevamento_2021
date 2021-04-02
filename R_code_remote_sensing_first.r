@@ -106,7 +106,7 @@ plotRGB(p224r63_2011mk, r=3, g=2, b=4, stretch="Lin")
 dev.off()
 
 plotRGB(p224r63_2011mk, r=3, g=4, b=2, stretch="Lin")
-#mltiframe stretch histogram che evidenzia di più le zone umide
+#multiframe stretch histogram che evidenzia di più le zone umide
 plotRGB(p224r63_2011mk, r=3, g=4, b=2, stretch="hist")
 
 #parnaturl colours, false colours, and false colours with histogram stretch
@@ -119,3 +119,28 @@ plotRGB(p224r63_2011mk, r=3, g=4, b=2, stretch="hist")
 #library(RStoolbox)
 
 ## day5
+#multitemporal set
+#importo tutte le bande del dato con la funzione brick
+p224r63_1988mk <- brick("p224r63_1988_masked.grd")
+#visualizza i metadati del dato
+p224r63_1988mk
+#plot su R tutte le bande in visualizzazione
+plot(p224r63_1988mk)
+#colore naturale e strech lineare 
+plotRGB(p224r63_1988mk, r=3, g=2, b=1, stretch="Lin")
+1#colore falso colore per infrarosso
+plotRGB(p224r63_1988mk, r=4, g=3, b=2, stretch="Lin")
+
+par(mfrow=c(2,1))
+plotRGB(p224r63_1988mk, r=3, g=2, b=1, stretch="Lin")
+plotRGB(p224r63_1988mk, r=4, g=3, b=2, stretch="Lin")
+##histogram
+#esporta in pdf con le img 2x2 
+pdf("multitemp_1988-2011.pdf")
+par(mfrow=c(2,2))
+plotRGB(p224r63_1988mk, r=4, g=3, b=2, stretch="Lin")
+plotRGB(p224r63_2011mk, r=4, g=3, b=2, stretch="Lin")
+plotRGB(p224r63_1988mk, r=4, g=3, b=2, stretch="hist")
+plotRGB(p224r63_2011mk, r=4, g=3, b=2, stretch="hist")
+dev.off()
+
