@@ -1,11 +1,11 @@
 # R_code_classification.r
 
-#set the directory
-setwd("C:/lab/")
-
 # import the library 
 library(raster)
 library(RStoolbox)
+
+#set the directory
+setwd("C:/lab/")
 
 #brick function to import all band together of solar orbiter data
 so <- brick("sun.jpg")
@@ -35,3 +35,22 @@ plot(sunc$map)
 # Unsupervised classification sun with 40 class
 sunc40 <- unsuperClass(sun, nClasses=40)
 plot(sunc40$map)
+
+
+#Gran Canyon
+#https://landsat.visibleearth.nasa.gov/view.php?id=80948
+#upload the band raster of gran canyon data
+gc <- brick("dolansprings_oli_2013088_canyon_lrg.jpg")
+#plot the raster data in rgb
+plotRGB(gc, r=1, g=2, b=3, stretch="lin")
+# it is possible stress the color with stretching histogram 
+plotRGB(gc, r=1, g=2, b=3, stretch="hist")
+#maximum similarity to the closest pixel
+#unsupervised classification
+gc_uc2 <- unsuperClass(gc,nClasses = 2)
+gc_uc2
+#plot to visualize the map component ($map) instead the classes
+plot(gc_uc2$map)
+#with 4 classes
+gc_uc4 <- unsuperClass(gc,nClasses = 4)
+plot(gc_uc4$map)
