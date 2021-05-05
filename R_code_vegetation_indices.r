@@ -4,6 +4,10 @@
 # call the library - the alternative method is require
 library(raster) #require(raster)
 library(RStoolbox) #for vegetation inidces calculation
+library(rasterVis)
+
+#install.packages("rasterdiv")
+library(rasterdiv)  #for the worldwide NDVI
 
 # set the directory
 setwd("C:/lab/")
@@ -76,6 +80,17 @@ plot(vi1, col=cl)
 #for defor2
 vi2 <- spectralIndices(defor2, green=3, red=2, nir=1)
 plot(vi2, col=cl)
+
+
+#worldwide NDVI
+plot(copNDVI)
+
+#pixel with value 253, 254, and 255 (water) will be set as NA's (eliminate water)
+copNDVI<- reclassify(copNDVI, cbind(253:255, NA))
+plot(copNDVI)
+
+#raster package needed
+levelplot(copNDVI)
 
 
 
