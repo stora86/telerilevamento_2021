@@ -56,7 +56,7 @@ plotRGB(EN_pca$map, r=1, g=2, b=3, stretch="lin")
 #10. Compute the variability (local standard deviation) of the first PCA
 #call the en_pca on $map layer that containe the data, on the $PC1
 EN_pca1_sd <- focal(EN_pca$map$PC1, w=matrix(1/9, nrow=3, ncol=3), fun=sd)
-plot(EN_st_pca1_sd, col=cl)
+plot(EN_pca1_sd, col=cl)
 
 
 
