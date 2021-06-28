@@ -150,7 +150,7 @@ p224r63_1988mk
 plot(p224r63_1988mk)
 #colore naturale e strech lineare 
 plotRGB(p224r63_1988mk, r=3, g=2, b=1, stretch="Lin")
-1#colore falso colore per infrarosso
+#colore falso colore per infrarosso
 plotRGB(p224r63_1988mk, r=4, g=3, b=2, stretch="Lin")
 
 par(mfrow=c(2,1))
